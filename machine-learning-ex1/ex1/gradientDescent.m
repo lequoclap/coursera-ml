@@ -16,8 +16,14 @@ for iter = 1:num_iters
     % Hint: While debugging, it can be useful to print out the values
     %       of the cost function (computeCost) and gradient here.
 
-	theta = theta - alpha/len(y)*J_history(iter)
-
+    
+    sigma = zeros(2,1)
+    for i = 1:m
+        x = X(i,:);
+        sigma = sigma + (theta'.x - y(i))*x;
+    end
+    theta = theta - alpha/m*sigma;
+	
     % ============================================================
 
     % Save the cost J in every iteration    
