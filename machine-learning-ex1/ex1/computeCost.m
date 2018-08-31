@@ -14,8 +14,8 @@ J = 0;
 %               You should set J to the cost.
 
 for i = 1:m
-    x = X(i,:);
-    J = J +  (theta'*x' - y(i))^2;
+    x = X(i,:)';
+    J = J +  (theta'*x - y(i))^2;
 end
 
 J = J/(2*m);
